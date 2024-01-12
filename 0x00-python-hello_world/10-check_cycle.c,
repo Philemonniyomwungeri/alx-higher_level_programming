@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+"""
+Check if a singly linked list has a cycle.
+"""
+def check_cycle(head):
+    """
+    Function to check if a linked list has a cycle.
+    Arguments:
+        - head: head of the linked list
+    Returns:
+        - True if there is a cycle, False otherwise
+    """
+    if not head or not head.next:
+        return False
+
+    slow = head
+    fast = head.next
+
+    while fast and fast.next:
+        if slow == fast:
+            return True
+        slow = slow.next
+        fast = fast.next.next
+
+    return False
+

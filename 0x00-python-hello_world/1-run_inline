@@ -1,15 +1,3 @@
 #!/bin/bash
-# This script runs Python code stored in the $PYCODE environment variable
-
-# Include lists.h (commented out since it's not used directly in the script)
-# . lists.h
-
-# Check if the code is provided
-if [ -z "$PYCODE" ]; then
-    echo "Error: PYCODE environment variable is not set."
-    exit 1
-fi
-
-# Run the Python code
 python3 -c "$PYCODE"
 
