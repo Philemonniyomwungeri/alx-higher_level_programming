@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-def uppercase(str):
-    for char in str:
-        if 'a' <= char <= 'z':
-            print("{:c}".format(ord(char) - ord('a') + ord('A')), end="")
-        else:
-            print("{:c}".format(ord(char)), end="")
+def uppercase(s):
+    for char in s:
+        print("{:c}".format(ord(char - 32) if 'a' <= char <= 'z' else ord(char)), end="")
     print()
 
 if __name__ == "__main__":
