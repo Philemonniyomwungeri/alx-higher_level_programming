@@ -5,12 +5,12 @@ if __name__ == "__main__":
     a = 10
     b = 5
 
-    add_result = add(a, b)
-    sub_result = sub(a, b)
-    mul_result = mul(a, b)
-    div_result = div(a, b)
+    result_add = add(a, b)
+    result_sub = sub(a, b)
+    result_mul = mul(a, b)
+    result_div = div(a, b)
 
-    print(add_result, end=' ')
-    print(sub_result, end=' ')
-    print(mul_result, end=' ')
-    print(div_result)
+    print("{:d} + {:d} = {:d}".format(a, b, result_add))
+    print("{:d} - {:d} = {:d}".format(a, b, result_sub))
+    print("{:d} * {:d} = {:d}".format(a, b, result_mul))
+    print("{:d} / {:d} = {:d}".format(a, b, result_div))
