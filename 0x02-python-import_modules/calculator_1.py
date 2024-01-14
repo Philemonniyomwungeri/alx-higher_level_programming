@@ -1,51 +1,17 @@
 #!/usr/bin/python3
+
 def add(a, b):
-    """My addition function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a + b
-    """
-    return (a + b)
-
+    """Return the sum of two integers."""
+    return a + b
 
 def sub(a, b):
-    """My subtraction function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a - b
-    """
-    return (a - b)
-
+    """Return the result of subtracting b from a."""
+    return a - b
 
 def mul(a, b):
-    """My multiplication function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a * b
-    """
-    return (a * b)
-
+    """Return the product of two integers."""
+    return a * b
 
 def div(a, b):
-    """My division function
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        The return value. a / b
-    """
+    """Return the result of dividing a by b as an integer."""
     return int(a / b)
