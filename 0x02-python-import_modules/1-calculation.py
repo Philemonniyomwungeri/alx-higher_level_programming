@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-from calculator_1 import add, sub, mul, div
+import calculator_1 as calc
 
 a = 10
 b = 5
 
-add_result = add(a, b)
-sub_result = sub(a, b)
-mul_result = mul(a, b)
-div_result = div(a, b)
+add_result = calc.add(a, b)
+sub_result = calc.sub(a, b)
+mul_result = calc.mul(a, b)
+div_result = calc.div(a, b)
 
-print("{:d} + {:d} = {:d}".format(a, b, add_result))
-print("{:d} - {:d} = {:d}".format(a, b, sub_result))
-print("{:d} * {:d} = {:d}".format(a, b, mul_result))
-print("{:d} / {:d} = {:d}".format(a, b, div_result))
+print(f"{a} + {b} = {add_result}")
+print(f"{a} - {b} = {sub_result}")
+print(f"{a} * {b} = {mul_result}")
+print(f"{a} / {b} = {div_result}")
+
