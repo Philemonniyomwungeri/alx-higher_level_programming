@@ -13,4 +13,3 @@ if __name__ == "__main__":
 
     for i in range(1, num_args + 1):
         print("{:d}: {}".format(i, argv[i]))
-
