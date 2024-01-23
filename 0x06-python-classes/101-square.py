@@ -2,13 +2,9 @@
 class Square:
     """Defines a square"""
     def __init__(self, size=0, position=(0, 0)):
-        """Initialises the data"""
+        """Initializes the data"""
         self.size = size
         self.position = position
-
-    def area(self):
-        """Returns current square area"""
-        return self.__size**2
 
     @property
     def size(self):
@@ -18,25 +14,11 @@ class Square:
     @size.setter
     def size(self, value):
         """Setter method"""
-        self.__size = value
         if type(value) != int:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-
-    def my_print(self):
-        """Prints the square"""
-        if self.__size == 0:
-            print()
-        else:
-            for y in range(self.__position[1]):
-                print()
-            for i in range(self.__size):
-                for x in range(self.__position[0]):
-                    print(' ', end='')
-                for j in range(self.__size):
-                    print('#', end='')
-                print()
+        self.__size = value
 
     @property
     def position(self):
@@ -52,14 +34,28 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
+    def area(self):
+        """Returns current square area"""
+        return self.__size ** 2
+
+    def my_print(self):
+        """Prints the square"""
+        if self.__size == 0:
+            print()
+        else:
+            for _ in range(self.__position[1]):
+                print()
+            for _ in range(self.__size):
+                print(' ' * self.__position[0] + '#' * self.__size)
+
     def __str__(self):
-        """Same print behaviour as my_print"""
+        """Same print behavior as my_print"""
         s = ""
         if not self.__size:
             return s
-        for y in range(self.__position[1]):
+        for _ in range(self.__position[1]):
             s += '\n'
-        for i in range(self.__size):
+        for _ in range(self.__size):
             s += ' ' * self.__position[0] + '#' * self.__size + '\n'
         return s[:-1]
 
