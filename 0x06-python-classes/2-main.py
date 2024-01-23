@@ -41,4 +41,4 @@ guillaume@ubuntu:~/0x06$ ./2-main.py
 'Square' object has no attribute 'size'
 'Square' object has no attribute '__size'
 size must be an integer
-size must be >= 0
+size must be >=0
