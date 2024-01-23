@@ -1,30 +1,31 @@
 #!/usr/bin/python3
+
 class Node:
     def __init__(self, data, next_node=None):
-        """Defines a node of a singly linked list"""
+        """Defines a node of a singly linked list."""
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """Data getter"""
+        """Data getter."""
         return self.__data
 
     @data.setter
     def data(self, value):
-        """Data setter"""
+        """Data setter."""
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
-        """Next node getter"""
+        """Next node getter."""
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """Next node setter"""
+        """Next node setter."""
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -32,10 +33,11 @@ class Node:
 
 class SinglyLinkedList:
     def __init__(self):
-        """Defines a singly linked list"""
+        """Defines a singly linked list."""
         self.__head = None
 
     def sorted_insert(self, value):
+        """Inserts a new Node into the correct sorted position in the list (increasing order)."""
         new_node = Node(value)
         tmp = self.__head
         add_start = False
@@ -57,6 +59,7 @@ class SinglyLinkedList:
             new_node.data = value
 
     def __str__(self):
+        """Prints the entire list in stdout, one node number by line."""
         s = ""
         current = self.__head
 
