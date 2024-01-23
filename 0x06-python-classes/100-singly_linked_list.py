@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """
-Module 100-singly_linked_list
-
-This module defines the Node and SinglyLinkedList classes.
+Module with Node and SinglyLinkedList classes
 """
-
 
 class Node:
     """
@@ -43,7 +40,6 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
-
 class SinglyLinkedList:
     """
     Defines a singly linked list.
@@ -78,7 +74,6 @@ class SinglyLinkedList:
             result += str(current.data) + "\n"
             current = current.next_node
         return result
-
 
 # Test the SinglyLinkedList class with examples
 if __name__ == "__main__":
