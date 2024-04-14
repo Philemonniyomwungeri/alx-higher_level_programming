@@ -1,17 +1,28 @@
 #!/usr/bin/python3
-"""Lists states"""
-
+import sys
 import MySQLdb
-from sys import argv
 
 if __name__ == "__main__":
-    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                           passwd=argv[2], db=argv[3], charset="utf8")
+    # Connect to MySQL server
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        charset="utf8"
+    )
+
+    # Create a cursor object
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
-    query_rows = cur.fetchall()
-    for row in query_rows:
-        if row[1].startswith("N"):
-            print(row)
+
+    # Execute the query to select states starting with "N"
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+
+    # Fetch all the rows and display them
+    for row in cur.fetchall():
+        print(row)
+
+    # Close cursor and connection
     cur.close()
     conn.close()
