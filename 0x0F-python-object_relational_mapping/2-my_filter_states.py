@@ -1,49 +1,35 @@
 #!/usr/bin/python3
-import MySQLdb
+
+"""
+    A script that lists all states from the database hbtn_0e_0_usa
+    starting with capital letter N
+    Username, password and database names are given as user args
+"""
+
+
 import sys
+import MySQLdb
 
-if __name__ == "__main__":
-    # Validate the number of arguments
-    if len(sys.argv) != 5:
-        print("Usage: {} username password database_name state_name".format(sys.argv[0]))
-        sys.exit(1)
 
-    # Extract command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database_name = sys.argv[3]
-    state_name = sys.argv[4]
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
 
-    try:
-        # Establish a connection to the database
-        conn = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database_name
-        )
+    cursor = db.cursor()
 
-        # Create a cursor object
-        cur = conn.cursor()
+    sql = """ SELECT * FROM states
+          WHERE name LIKE BINARY '{}'
+          ORDER BY id ASC """.format(sys.argv[4])
 
-        # Execute the SQL query with user input as a parameter
-        cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id ASC", (state_name,))
+    cursor.execute(sql)
 
-        # Fetch all rows from the result set
-        rows = cur.fetchall()
+    data = cursor.fetchall()
 
-        # Print each row
-        for row in rows:
-            print(row)
+    for row in data:
+        print(row)
 
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
-
-    finally:
-        # Close cursor and connection
-        if cur:
-            cur.close()
-        if conn:
-            conn.close()
-
+    cursor.close()
+    db.close()
