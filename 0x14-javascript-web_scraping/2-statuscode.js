@@ -2,20 +2,12 @@
 
 const request = require('request');
 
-// Check if URL argument is provided
-// if (process.argv.length !== 3) {
-//   console.error('Usage: ./2-statuscode.js <URL>');
-//     process.exit(1);
-//     }
-//
-//     const url = process.argv[2];
-//
-//     // Make a GET request to the provided URL
-//     request.get(url, (error, response) => {
-//       if (error) {
-//           console.error(error);
-//               process.exit(1);
-//                 }
-//                   
-//                     console.log(`code: ${response.statusCode}`);
-//                     });
+const url = process.argv[2];
+
+request(url, function (error, response, body) {
+	  if (error) {
+		      console.error('error:', error);
+		    } else {
+			        console.log(`code: ${response.statusCode}`);
+			      }
+});
