@@ -16,9 +16,11 @@ request(apiUrl, function (error, response, body) {
 			if (task.completed) {
 				if (!completedTasks[task.userId]) {
 					completedTasks[task.userId] = 0;
+
 					completedTasks[task.userId]++;
 				}
 			});
+
 		console.log(completedTasks);
 	}
 	});
